@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class TankData : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    //Handling Move Speed
+    public float moveSpeed = 3.0f;
+    //Handling Rotation
+    public float turnSpeed = 30.0f;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

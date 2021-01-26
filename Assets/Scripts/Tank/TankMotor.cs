@@ -4,7 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(TankData))]
 [RequireComponent(typeof(CharacterController))]
-public class tankMotor : MonoBehaviour
+public class TankMotor : MonoBehaviour
 {
     private TankData data;
     private CharacterController characterController;
