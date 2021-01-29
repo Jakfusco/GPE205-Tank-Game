@@ -6,8 +6,10 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class TankMotor : MonoBehaviour
 {
-    private TankData data;
-    private CharacterController characterController;
+    //Variables
+
+    private TankData data; // Tank Data Component
+    private CharacterController characterController; //Character Controller Component 
 
 
     public void Start()
