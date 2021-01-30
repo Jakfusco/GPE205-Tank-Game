@@ -12,6 +12,11 @@ public class InputController : MonoBehaviour
     private TankMotor motor; //Tank Motor Component
     private TankShooter shooter; //Tank Shooter Component
 
+    //Timer Variables
+    public float timerDelay = 1.50f;
+    private float lastEventTime;
+
+    // Input Scheme Variables
     public enum InputScheme { WASD, arrowKeys }; // What Control Scheme the player can select
     public InputScheme inputScheme = InputScheme.arrowKeys; // Default control scheme is set to arrow keys, but can be changed
 
@@ -21,6 +26,8 @@ public class InputController : MonoBehaviour
         data = GetComponent<TankData>();
         motor = GetComponent<TankMotor>();
         shooter = GetComponent<TankShooter>();
+
+        lastEventTime = Time.time - timerDelay;
     }
 
     // Update is called once per frame
@@ -57,7 +64,11 @@ public class InputController : MonoBehaviour
                 //Handle Shooting
                 if (Input.GetKeyDown(KeyCode.KeypadEnter)) //Shoot
                 {
-                    shooter.shoot();
+                    if (Time.time >= lastEventTime + timerDelay)
+                    {
+                        shooter.shoot();
+                        lastEventTime = Time.time;
+                    }
                 }
 
                 break;
@@ -91,7 +102,11 @@ public class InputController : MonoBehaviour
                 //Handle Shooting
                 if (Input.GetKey(KeyCode.Space)) //Shoot
                 {
-                    shooter.shoot();
+                    if (Time.time >= lastEventTime + timerDelay)
+                    {
+                        shooter.shoot();
+                        lastEventTime = Time.time;
+                    }
                 }
 
                 break;

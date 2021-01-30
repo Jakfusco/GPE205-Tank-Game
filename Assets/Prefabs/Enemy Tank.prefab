@@ -232,14 +232,14 @@ GameObject:
   m_Component:
   - component: {fileID: 5652691700868475842}
   - component: {fileID: 5652691700880785966}
-  - component: {fileID: 739321880}
   - component: {fileID: 739321881}
+  - component: {fileID: 8241228295209519511}
   - component: {fileID: 739321882}
   - component: {fileID: 739321883}
   - component: {fileID: 3224535459095527390}
   - component: {fileID: 1517425971926622797}
   m_Layer: 0
-  m_Name: Tank
+  m_Name: Enemy Tank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -281,20 +281,6 @@ CharacterController:
   m_SkinWidth: 0.001
   m_MinMoveDistance: 0
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &739321880
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5652691700868970466}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0aaaaa53b5fbd734d93e112a5e5a8246, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timerDelay: 1.5
-  inputScheme: 1
 --- !u!114 &739321881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -309,6 +295,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 1490294454}
   cannonBallPrefab: {fileID: 0}
+--- !u!114 &8241228295209519511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5652691700868970466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c0d714387b2e3e4bac0b8660dfc9402, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerDelay: 1.5
 --- !u!114 &739321882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -364,7 +363,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0

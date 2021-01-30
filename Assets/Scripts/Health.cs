@@ -4,8 +4,8 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     //Variables
-    public int currentHealth = 5; //Current Health of The Tank
-    public int maxHealth = 5; //Maximum Health of The Tank
+    public int currentHealth = 5; // Current Health of The Tank
+    public int maxHealth = 5; // Maximum Health of The Tank
 
     public void TakeDamage(Attack attackData)
     {
@@ -20,6 +20,7 @@ public class Health : MonoBehaviour
 
     private void Die()
     {
-        throw new KeyNotFoundException();
+        Debug.Log("I died. Goddammit I should have bought life insurance");
+        Destroy(this.gameObject);
     }
 }

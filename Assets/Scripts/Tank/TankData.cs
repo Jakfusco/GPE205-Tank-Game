@@ -11,11 +11,11 @@ public class TankData : MonoBehaviour
 
 
     //Handling Cannonballs
-    public int cannonballDamage = 1; //How much damage the tank will do with its shots
-    public float reloadTime = 1.0f; //How long the tank takes to reload.
+    public int cannonballDamage = 1; // How much damage the tank will do with its shots
+    public float reloadTime = 1.0f; // How long the tank takes to reload.
 
     //Handling Shot Speed
-    public int shotSpeed = 1000; //Handles the shot speed for individual bullet types
+    public int shotSpeed = 1000; // Handles the shot speed for individual bullet types
 
     //Make a note to look up active reloading in Unity
 }
