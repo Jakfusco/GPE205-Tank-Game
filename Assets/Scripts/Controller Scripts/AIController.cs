@@ -15,6 +15,12 @@ public class AIController : MonoBehaviour
     //Timer Variables
     public float timerDelay = 1.50f;
     private float lastEventTime;
+
+    //TODO: We need a way to track all waypoints
+    public GameObject[] waypoints;
+    public float closeEnough = 1.0f;
+    //TODO: We need to figure out what waypoint we are at
+    private int currentWaypoint = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,10 +34,28 @@ public class AIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //TODO: We need to so see if we are already at the waypoint
+
+        //If we are not rotated to face the waypoint, turn to face it
+        if (motor.RotateTowards(waypoints[currentWaypoint].transform.position,data.turnSpeed))
+        {
+            //Do Nothing
+        }
+        else
+        {
+            motor.Move(data.moveSpeed);
+        }
+        //If we have arrived at the waypoint, advance to next way point
+        if (Vector3.SqrMagnitude(transform.position - waypoints[currentWaypoint].transform.position) <= (closeEnough * closeEnough))
+        {
+
+        }
+        
         if (Time.time >= lastEventTime + timerDelay)
         {
             shooter.shoot();
             lastEventTime = Time.time;
         }
     }
+
 }
