@@ -107,7 +107,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1490294454}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.259, z: 0.898}
+  m_LocalPosition: {x: 0, y: 0.259, z: 0.943}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5652691700868475842}
@@ -240,7 +240,7 @@ GameObject:
   - component: {fileID: 1517425971926622797}
   m_Layer: 0
   m_Name: Tank
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -308,7 +308,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firePoint: {fileID: 1490294454}
-  cannonBallPrefab: {fileID: 0}
+  cannonBallPrefab: {fileID: 2095333500193962049, guid: 3cb6f5ffe3619f541be4a1690ce903f5,
+    type: 3}
 --- !u!114 &739321882
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -224,6 +224,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerDelay: 1.5
+  loopType: 0
+  waypoints: []
+  closeEnough: 1
 --- !u!114 &739321882
 MonoBehaviour:
   m_ObjectHideFlags: 0
