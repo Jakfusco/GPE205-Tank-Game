@@ -4,7 +4,24 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     //Variables
-    public int currentHealth = 5; // Current Health of The Tank
+    private int currentHealth = 1; // Current Health of The Tank
+    public int CurrentHealth
+    {
+        get { return currentHealth; }
+
+        set
+        {
+            currentHealth = value;
+            if (currentHealth <= 0)
+            {
+                Die();
+            }
+            if (currentHealth > maxHealth)
+            {
+                currentHealth = maxHealth;
+            }
+        }
+    }
     public int maxHealth = 5; // Maximum Health of The Tank
 
     public void TakeDamage(Attack attackData)

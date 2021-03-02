@@ -9,6 +9,9 @@ public class TankData : MonoBehaviour
     //Handling Rotation
     public float turnSpeed = 30.0f;
 
+    public float fireRate = 1.0f;
+
+
 
     //Handling Cannonballs
     public int cannonballDamage = 1; // How much damage the tank will do with its shots
