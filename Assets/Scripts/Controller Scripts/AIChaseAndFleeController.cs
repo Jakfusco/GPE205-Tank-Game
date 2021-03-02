@@ -33,7 +33,7 @@ public class AIChaseAndFleeController : MonoBehaviour
         if (AttackState == attackState.chase)
         {
             Chase(GameManager.Instance.Players[0]);
-            if (health.currentHealth <= 3)
+            if (health.CurrentHealth <= 3)
             {
                 AttackState = attackState.flee;
             }
@@ -41,7 +41,7 @@ public class AIChaseAndFleeController : MonoBehaviour
         else if (AttackState == attackState.flee)
         {
             Flee(GameManager.Instance.Players[0]);
-            if (health.currentHealth > 3)
+            if (health.CurrentHealth > 3)
             {
                 AttackState = attackState.flee;
             }
