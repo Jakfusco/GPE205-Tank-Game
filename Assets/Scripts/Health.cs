@@ -4,7 +4,7 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     //Variables
-    private int currentHealth = 1; // Current Health of The Tank
+    private int currentHealth = 5; // Current Health of The Tank
     public int CurrentHealth
     {
         get { return currentHealth; }

@@ -24,6 +24,7 @@ public class TankShooter : MonoBehaviour
 
     public void shoot()
     {
+        Noisemaker noisemaker = gameObject.GetComponent<Noisemaker>();
         // Check cooldown timer to see if we can shoot.
 
         // Instantiate the cannon ball.
@@ -35,6 +36,8 @@ public class TankShooter : MonoBehaviour
             Cannonball cannonBall = firedCannonBall.GetComponent<Cannonball>();
             cannonBall.attack = new Attack(this.gameObject, data.cannonballDamage);
             Debug.Log(cannonBall.attack);
+            //gameObject.SendMessage("AddNoise", value:5, SendMessageOptions.DontRequireReceiver);
+            noisemaker.AddNoise(5);
         
 
     }

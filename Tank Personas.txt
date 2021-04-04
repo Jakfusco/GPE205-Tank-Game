@@ -1,0 +1,11 @@
+----------TANK GAME DOCUMENTATION----------
+Tank Personas
+	Hunter - Hunts The Player Down, knows their location at spawn.
+	Patrol - Patrols the room they spawned in, if the player enters the room, they attack the player until they die or leave.
+			* Loops patrol waypoints until they see the player/hear a shot
+				* If the tank does not see the player, but instead hears them, they will rotate to face the player and attack them if they see them
+			* Upon detection, they chase the player and switch to Chase and Fire State once close enough
+			* If they don't find the player after 10 seconds/kill the player, they return to their patrol
+	Coward - Same as patrol, but runs away from the player when they see them. As fast as the player compared to the other tanks, which are slower.
+	Sniper - Stays in the same place and fires upon any tank that enters their line of sight
+	Berserker - Same as Hunter, but charges the player when they see them. Has 3 Lives instead of 5

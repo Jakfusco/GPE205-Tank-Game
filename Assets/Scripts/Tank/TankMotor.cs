@@ -45,7 +45,7 @@ public class TankMotor : MonoBehaviour
         // Adjust our rotation to be based on our speed
         // Transform.Rotate() doesn't account for speed, so we need to change our rotation to "per second" instead of "per frame."
         // See the lecture on Timers for details on how this works.
-        Vector3 rotateVector = Vector3.up * rotateSpeed *Time.deltaTime;
+        Vector3 rotateVector = Vector3.up * rotateSpeed * Time.deltaTime;
 
         // Now, rotate our tank by this value - we want to rotate in our local space (not in world space).
         transform.Rotate(rotateVector, Space.Self);
@@ -53,8 +53,8 @@ public class TankMotor : MonoBehaviour
 
     public bool RotateTowards(Vector3 target, float speed)
     {
-        Vector3 adjustedTarget = new Vector3(target.x, transform.position.y, target.z);
-        Vector3 vectorToTarget = adjustedTarget;
+
+        Vector3 vectorToTarget = target - this.transform.position;
         Quaternion targetRotation = Quaternion.LookRotation(vectorToTarget);
         
         if (targetRotation == transform.rotation)

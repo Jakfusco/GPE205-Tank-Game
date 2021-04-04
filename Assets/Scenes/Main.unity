@@ -449,11 +449,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 392b944e2f01f134abe25a2d35242460, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rows: 3
-  columns: 3
+  rows: 4
+  columns: 4
+  mapSeed: 0
   gridPrefabs:
   - {fileID: 1272859472673265345, guid: 98db9f5e195db4d498b8f9af0f579ace, type: 3}
   - {fileID: 470266343822995717, guid: 732f707fdeee8834ebbab959c7918d0b, type: 3}
+  mapType: 0
 --- !u!4 &1085535736
 Transform:
   m_ObjectHideFlags: 0
@@ -484,7 +486,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1606719840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -501,6 +503,9 @@ MonoBehaviour:
   Players:
   - {fileID: 1997932429}
   - {fileID: 0}
+  enemySpawnPoints: []
+  EnemyAIPrefabs: []
+  playerScore: 0
 --- !u!4 &1606719841
 Transform:
   m_ObjectHideFlags: 0
