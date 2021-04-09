@@ -15,9 +15,12 @@ public class MainMenu : MonoBehaviour
     }
 
     public void OnPlayClicked()
-    {
+    { 
+
         SceneManager.LoadScene(2);
+       
     }
+
 
     public void OnOptionsClicked()
     {

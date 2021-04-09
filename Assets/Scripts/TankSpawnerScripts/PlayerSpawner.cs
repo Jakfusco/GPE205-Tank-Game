@@ -16,15 +16,28 @@ public class PlayerSpawner : MonoBehaviour
     }
     private void Update()
     {
-        if (playerOne == null)
-        {
-            RespawnPlayer();
-        }
     }
 
-    private void RespawnPlayer()
+    public void RespawnPlayer()
     {
-            spawnPointToUse = GameManager.Instance.playerSpawnPoints[UnityEngine.Random.Range(0, GameManager.Instance.playerSpawnPoints.Length)];
-            Instantiate(GameManager.Instance.playerPrefab, spawnPointToUse.transform);
+        spawnPointToUse = GameManager.Instance.playerSpawnPoints[UnityEngine.Random.Range(0, GameManager.Instance.playerSpawnPoints.Length)];
+        if (GameManager.Instance.Players[0] == null)
+        {
+            GameObject newPlayer = Instantiate(GameManager.Instance.playerPrefab, spawnPointToUse.transform);
+            GameManager.Instance.Players[0] = newPlayer;
+            newPlayer.GetComponent<InputController>().MakeInputArrows();
+
+        }
+        if (GameManager.Instance.Players[1] == null)
+        {
+            GameObject newPlayer = Instantiate(GameManager.Instance.playerPrefab, spawnPointToUse.transform);
+            GameManager.Instance.Players[1] = newPlayer;
+            newPlayer.GetComponent<InputController>().MakeInputWASD();
+
+        }
+
+
+
     }
 }
+

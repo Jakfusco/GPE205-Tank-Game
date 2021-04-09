@@ -20,10 +20,11 @@ public class MapGenerator : MonoBehaviour
  
 
 
-    private void Start()
+    private void Awake()
     {
         GenerateGrid();
         GameManager.Instance.playerSpawnPoints = GameObject.FindGameObjectsWithTag("playerSpawn");
+
     }
 
     public GameObject RandomRoomPrefab()

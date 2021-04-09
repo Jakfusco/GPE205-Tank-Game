@@ -31,12 +31,13 @@ public class InputController : MonoBehaviour
 
         if (this.gameObject == GameManager.Instance.Players[0])
         {
-            
-        }
-        else
-        {
             inputScheme = InputScheme.arrowKeys;
         }
+        if (this.gameObject == GameManager.Instance.Players[1])
+        {
+            inputScheme = InputScheme.WASD;
+        }
+
     }
 
     // Update is called once per frame
@@ -126,5 +127,15 @@ public class InputController : MonoBehaviour
                 break;
 
         }
+    }
+
+    public void MakeInputWASD()
+    {
+        inputScheme = InputScheme.WASD;
+    }
+
+    public void MakeInputArrows()
+    {
+        inputScheme = InputScheme.arrowKeys;
     }
 }

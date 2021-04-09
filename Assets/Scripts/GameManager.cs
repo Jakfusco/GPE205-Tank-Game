@@ -15,6 +15,9 @@ public class GameManager : Singleton<GameManager>
     public GameObject[] playerSpawnPoints;
     public GameObject projectilePrefab;
 
+    //Used to determine if we're in play mode
+    Scene currentScene;
+
     public bool isMultiplayer;
 
     public int playerScore = 0;
@@ -22,6 +25,10 @@ public class GameManager : Singleton<GameManager>
     public float musicVolume;
 
     public float sfxVolume;
+
+    public bool ifGameStart = false;
+
+    private PlayerSpawner playerSpawner;
 
     public enum MapGenerationType { Random, MapOfTheDay, CustomSeed };
     public MapGenerationType mapType = MapGenerationType.Random;
@@ -32,8 +39,29 @@ public class GameManager : Singleton<GameManager>
 
     public void Start()
     {
+        playerSpawner = GetComponent<PlayerSpawner>();
         enemyAIPrefabs.AddRange(GameObject.FindGameObjectsWithTag("enemyTank"));
         SceneManager.LoadScene(1);
+    }
+
+    private void Update()
+    {
+        if (SceneManager.GetActiveScene().name == "Main")
+        {
+            print("scene 2");
+           // if (ifGameStart == true)
+            //{
+                print("we started");
+                if (Players[0] == null)
+                {
+                    playerSpawner.RespawnPlayer();
+                }
+                if (Players[1] == null)
+                {
+                    playerSpawner.RespawnPlayer();
+                }
+          //  }
+        }
     }
 
     public void SavePreferences()

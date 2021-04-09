@@ -13,7 +13,7 @@ public class CameraController : MonoBehaviour
             GameManager.Instance.Players[0] = this.gameObject;
             this.gameObject.name = "Player One";
         }
-        else
+        if (GameManager.Instance.Players[1] == null)
         {
             GameManager.Instance.Players[1] = this.gameObject;
             this.gameObject.name = "Player Two";
