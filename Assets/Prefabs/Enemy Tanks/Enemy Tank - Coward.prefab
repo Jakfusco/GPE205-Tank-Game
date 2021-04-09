@@ -243,7 +243,7 @@ GameObject:
   - component: {fileID: 2540308238303308460}
   m_Layer: 0
   m_Name: Enemy Tank - Coward
-  m_TagString: Untagged
+  m_TagString: enemyTank
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

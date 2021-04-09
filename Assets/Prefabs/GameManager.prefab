@@ -43,10 +43,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15d3f0c9a45afb8458e6163b24305d48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 0}
+  playerPrefab: {fileID: 5652691700868970466, guid: 181b521f3d7f66440ac4189d1cf04bac,
+    type: 3}
   Players:
   - {fileID: 0}
   - {fileID: 0}
-  enemySpawnPoints: []
-  EnemyAIPrefabs: []
+  enemySpawnPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  enemyAIPrefabs: []
+  playerSpawnPoints: []
+  projectilePrefab: {fileID: 2095333500193962049, guid: 3cb6f5ffe3619f541be4a1690ce903f5,
+    type: 3}
+  isMultiplayer: 0
   playerScore: 0
+  musicVolume: 0
+  sfxVolume: 0
+  mapType: 0

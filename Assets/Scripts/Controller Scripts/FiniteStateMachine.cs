@@ -52,6 +52,10 @@ public class FiniteStateMachine : MonoBehaviour
         controller = GetComponent<AIController>();
 
         lastEventTime = Time.time;
+
+        playerOne = GameManager.Instance.Players[0];
+        playerTwo = GameManager.Instance.Players[1];
+        shooter.cannonBallPrefab = GameManager.Instance.projectilePrefab;
     }
 
     // Update is called once per frame

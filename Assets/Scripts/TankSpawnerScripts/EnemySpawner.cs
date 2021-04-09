@@ -28,6 +28,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnEnemy()
     {
+        enemyToSpawn = GameManager.Instance.enemyAIPrefabs[Random.Range(0, GameManager.Instance.enemyAIPrefabs.Count - 1)];
         //Spawn in the enemy
         currentEnemy = Instantiate(enemyToSpawn, transform.position, Quaternion.identity);
         //Reset Timer

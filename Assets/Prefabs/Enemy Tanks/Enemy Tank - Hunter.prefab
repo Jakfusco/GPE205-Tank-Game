@@ -414,7 +414,7 @@ GameObject:
   - component: {fileID: 674443646764430966}
   m_Layer: 0
   m_Name: Enemy Tank - Hunter
-  m_TagString: Untagged
+  m_TagString: enemyTank
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

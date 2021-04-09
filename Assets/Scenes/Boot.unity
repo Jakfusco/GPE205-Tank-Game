@@ -130,30 +130,30 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1089183031814502180, guid: 790cceb7eb923a94e8071989f439d46d,
         type: 3}
-      propertyPath: EnemyAIPrefabs.Array.size
+      propertyPath: enemyAIPrefabs.Array.size
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1089183031814502180, guid: 790cceb7eb923a94e8071989f439d46d,
         type: 3}
-      propertyPath: EnemyAIPrefabs.Array.data[0]
+      propertyPath: enemyAIPrefabs.Array.data[0]
       value: 
       objectReference: {fileID: 5719999389033041028, guid: 598dadab46c1a2246b958da8daacf900,
         type: 3}
     - target: {fileID: 1089183031814502180, guid: 790cceb7eb923a94e8071989f439d46d,
         type: 3}
-      propertyPath: EnemyAIPrefabs.Array.data[1]
+      propertyPath: enemyAIPrefabs.Array.data[1]
       value: 
       objectReference: {fileID: 7782370397696594557, guid: fc33b8aaea0cfe342b6580e8564148cd,
         type: 3}
     - target: {fileID: 1089183031814502180, guid: 790cceb7eb923a94e8071989f439d46d,
         type: 3}
-      propertyPath: EnemyAIPrefabs.Array.data[2]
+      propertyPath: enemyAIPrefabs.Array.data[2]
       value: 
       objectReference: {fileID: 3942347254264936984, guid: 628eae8181fa4754ba7f1e7400119f19,
         type: 3}
     - target: {fileID: 1089183031814502180, guid: 790cceb7eb923a94e8071989f439d46d,
         type: 3}
-      propertyPath: EnemyAIPrefabs.Array.data[3]
+      propertyPath: enemyAIPrefabs.Array.data[3]
       value: 
       objectReference: {fileID: 7518058510173676452, guid: 2398ae56080329a42b47763feb2f34a3,
         type: 3}

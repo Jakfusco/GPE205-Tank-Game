@@ -11,7 +11,9 @@ public class GameManager : Singleton<GameManager>
 
     public List<EnemySpawnPoints> enemySpawnPoints = new List<EnemySpawnPoints>();
 
-    public GameObject[] EnemyAIPrefabs;
+    public List<GameObject> enemyAIPrefabs = new List <GameObject>();
+    public GameObject[] playerSpawnPoints;
+    public GameObject projectilePrefab;
 
     public bool isMultiplayer;
 
@@ -30,7 +32,8 @@ public class GameManager : Singleton<GameManager>
 
     public void Start()
     {
-        // SceneManager.LoadScene(1);
+        enemyAIPrefabs.AddRange(GameObject.FindGameObjectsWithTag("enemyTank"));
+        SceneManager.LoadScene(1);
     }
 
     public void SavePreferences()
