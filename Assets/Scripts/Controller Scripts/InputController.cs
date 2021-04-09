@@ -28,6 +28,15 @@ public class InputController : MonoBehaviour
         shooter = GetComponent<TankShooter>();
 
         lastEventTime = Time.time - timerDelay;
+
+        if (this.gameObject == GameManager.Instance.Players[0])
+        {
+            
+        }
+        else
+        {
+            inputScheme = InputScheme.arrowKeys;
+        }
     }
 
     // Update is called once per frame

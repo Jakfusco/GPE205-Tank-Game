@@ -10,7 +10,7 @@ using UnityEngine;
 [RequireComponent(typeof(TankShooter))] //Required for the script to run
 [RequireComponent(typeof(Health))] //Required for the script to run
 [RequireComponent(typeof(AIController))] //Required for Script to Run
-public class SampleFiniteStateMachine : MonoBehaviour
+public class FiniteStateMachine : MonoBehaviour
 {
     private TankData data; //Tank Data Component
     private TankMotor motor; //Tank Motor Component

@@ -10,10 +10,11 @@ public class MainMenu : MonoBehaviour
     public GameObject optionsMenu;
     public void OnQuitClicked()
     {
+        Debug.Log("Quit Game");
         Application.Quit();
     }
 
-    public void OnNewGameClicked()
+    public void OnPlayClicked()
     {
         SceneManager.LoadScene(2);
     }

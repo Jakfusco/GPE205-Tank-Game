@@ -455,7 +455,10 @@ MonoBehaviour:
   gridPrefabs:
   - {fileID: 1272859472673265345, guid: 98db9f5e195db4d498b8f9af0f579ace, type: 3}
   - {fileID: 470266343822995717, guid: 732f707fdeee8834ebbab959c7918d0b, type: 3}
-  mapType: 0
+  - {fileID: 1832119963755082046, guid: 881237c9bb72b194e8a081d601f96788, type: 3}
+  - {fileID: 8153607659381488528, guid: fc6928cc2d6c827429d3cb0926dc0a57, type: 3}
+  - {fileID: 1333339002782412084, guid: 65aeeb95a99833646b12afc29973172b, type: 3}
+  - {fileID: 2310257296716018631, guid: 1b11036304a2e09408f682ee6d070b94, type: 3}
 --- !u!4 &1085535736
 Transform:
   m_ObjectHideFlags: 0
@@ -464,7 +467,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1085535734}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.812351, y: 2.3318386, z: 1.5518074}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -505,7 +508,11 @@ MonoBehaviour:
   - {fileID: 0}
   enemySpawnPoints: []
   EnemyAIPrefabs: []
+  isMultiplayer: 0
   playerScore: 0
+  musicVolume: 0
+  sfxVolume: 0
+  mapType: 0
 --- !u!4 &1606719841
 Transform:
   m_ObjectHideFlags: 0

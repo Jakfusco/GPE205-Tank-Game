@@ -13,6 +13,8 @@ public class GameManager : Singleton<GameManager>
 
     public GameObject[] EnemyAIPrefabs;
 
+    public bool isMultiplayer;
+
     public int playerScore = 0;
 
     public float musicVolume;
@@ -28,7 +30,7 @@ public class GameManager : Singleton<GameManager>
 
     public void Start()
     {
-        SceneManager.LoadScene(1);
+        // SceneManager.LoadScene(1);
     }
 
     public void SavePreferences()

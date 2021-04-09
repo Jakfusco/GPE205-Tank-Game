@@ -60,6 +60,8 @@ public class AIController : MonoBehaviour
         shooter = GetComponent<TankShooter>();
 
         lastEventTime = Time.time - timerDelay;
+
+        waypoints = GameObject.FindGameObjectsWithTag("patrolPoint");
     }
 
     // Update is called once per frame
