@@ -32,6 +32,7 @@ public class GameManager : Singleton<GameManager>
 
     public enum MapGenerationType { Random, MapOfTheDay, CustomSeed };
     public MapGenerationType mapType = MapGenerationType.Random;
+    public int mapSeed;
     protected override void Awake()
     {
         base.Awake();

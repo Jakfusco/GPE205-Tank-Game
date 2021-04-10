@@ -186,7 +186,7 @@ PrefabInstance:
     - target: {fileID: 1089183031814502180, guid: 790cceb7eb923a94e8071989f439d46d,
         type: 3}
       propertyPath: isMultiplayer
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4405834320315322154, guid: 790cceb7eb923a94e8071989f439d46d,
         type: 3}

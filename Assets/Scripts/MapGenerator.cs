@@ -43,7 +43,7 @@ public class MapGenerator : MonoBehaviour
                 mapSeed = DateToInt(DateTime.Now.Date);
                 break;
             case GameManager.MapGenerationType.CustomSeed:
-                //Don't Change The Seed
+                mapSeed = GameManager.Instance.mapSeed;
                 break;
 
         }
