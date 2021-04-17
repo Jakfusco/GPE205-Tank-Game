@@ -264,9 +264,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   turnSpeed: 115
-  fireRate: 1
+  fireRate: 3
   cannonballDamage: 1
-  reloadTime: 1
+  reloadTime: 1.5
   shotSpeed: 1000
 --- !u!114 &3224535459095527390
 MonoBehaviour:

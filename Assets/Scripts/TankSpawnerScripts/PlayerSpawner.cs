@@ -28,13 +28,15 @@ public class PlayerSpawner : MonoBehaviour
             newPlayer.GetComponent<InputController>().MakeInputArrows();
 
         }
-        if (GameManager.Instance.Players[1] == null)
-        {
+        if (GameManager.Instance.Players[1] == null && GameManager.Instance.isMultiplayer)
+          {
             GameObject newPlayer = Instantiate(GameManager.Instance.playerPrefab, spawnPointToUse.transform);
             GameManager.Instance.Players[1] = newPlayer;
             newPlayer.GetComponent<InputController>().MakeInputWASD();
 
-        }
+          }
+
+       
 
 
 

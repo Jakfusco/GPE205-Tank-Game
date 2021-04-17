@@ -34,6 +34,6 @@ public class MapGenerationDropDown : MonoBehaviour
     }
     public void SetCustomSeed()
     {
-        GameManager.Instance.mapSeed = int.Parse(CustomSeedInput.text);
+            GameManager.Instance.mapSeed = int.Parse(CustomSeedInput.text);
     }
 }

@@ -22,6 +22,8 @@ public class GameManager : Singleton<GameManager>
 
     public int playerScore = 0;
 
+    public int highScore;
+
     public float musicVolume;
 
     public float sfxVolume;
@@ -50,8 +52,6 @@ public class GameManager : Singleton<GameManager>
         if (SceneManager.GetActiveScene().name == "Main")
         {
             print("scene 2");
-           // if (ifGameStart == true)
-            //{
                 print("we started");
                 if (Players[0] == null)
                 {
@@ -61,7 +61,11 @@ public class GameManager : Singleton<GameManager>
                 {
                     playerSpawner.RespawnPlayer();
                 }
-          //  }
+        }
+
+        if (playerScore > highScore)
+        {
+            playerScore = highScore;
         }
     }
 
