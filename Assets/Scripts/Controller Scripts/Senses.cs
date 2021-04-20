@@ -6,61 +6,63 @@ public class Senses : MonoBehaviour
 {
     public float hearingDistance = 3.0f;
     public float fieldOfVeiw = 45.0f;
+    public Color gizmoColor;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-            foreach (GameObject player in GameManager.Instance.Players)
-            {
-                if (CanSee(player))
-            {
-                Debug.Log("I can see the player");
-                return;
-            }
-            }
-            foreach (GameObject player in GameManager.Instance.Players)
-        {
-            if (CanHear(player))
-            {
-                Debug.Log("I heard the player");
-                return;
-            }
-        }
-    }
 
     public bool CanSee(GameObject target)
     {
         //Check Field Of View
         Vector3 vectorToTarget = target.transform.position - transform.position;
         float angleToTarget = Vector3.Angle(vectorToTarget, transform.forward);
-        if (angleToTarget <= fieldOfVeiw)
+        if (angleToTarget < fieldOfVeiw)
         {
             RaycastHit hit;
 
-            if (Physics.Raycast(transform.position, vectorToTarget, out hit));
+            if (Physics.Raycast(transform.position, vectorToTarget, out hit, Mathf.Infinity))
             {
-                if (hit.collider.gameObject.tag == "PLayer")
+                if (hit.collider.gameObject == target)
                 {
-                    Debug.Log("I See the Player");
+                    Debug.DrawRay(transform.position, vectorToTarget, Color.green);
                     return true;
                 }
+                else
+                {
+                    Debug.DrawRay(transform.position, vectorToTarget, Color.red);
+                    return false;
+
+                }
+            }
+            else
+            {
+                return false;
             }
         }
-        return false;
+        else
+        {
+            return false;
+        }
     }
 
     public bool CanHear(GameObject target)
     {
-        if (target = null)
+        Noisemaker targetNoisemaker = target.GetComponent<Noisemaker>();
+        if (targetNoisemaker != null)
         {
-            return false;
+            Vector3 vectorToTarget = target.transform.position - this.transform.position;
+            if (hearingDistance + targetNoisemaker.noiseRadius > vectorToTarget.magnitude)
+            {
+                gizmoColor = Color.green;
+                return true;
+            }
         }
-        return (Vector3.SqrMagnitude(transform.position - target.transform.position) <= hearingDistance * hearingDistance);
+        gizmoColor = Color.red;
+        return false;
+
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = gizmoColor;
+        Gizmos.DrawWireSphere(transform.position, hearingDistance);
     }
 }

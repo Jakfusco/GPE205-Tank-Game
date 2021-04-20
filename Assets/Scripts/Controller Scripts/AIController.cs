@@ -26,6 +26,23 @@ public class AIController : MonoBehaviour
     //TODO: We need to figure out what waypoint we are at
     private int currentWaypoint = 0;
     private bool isLoopingForward = true;
+
+    //Obstacle Avoidance Variables
+    public bool canMove(float speed)
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, transform.forward, out hit, speed))
+        {
+            if (!hit.collider.CompareTag ("Player"))
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+    public int avoidStage = 0;
+    public float avoidTime = 1.5f;
+    public float exitTime;
     private bool isNotAtFinalWaypoint
     {
         get
@@ -43,10 +60,17 @@ public class AIController : MonoBehaviour
         shooter = GetComponent<TankShooter>();
 
         lastEventTime = Time.time - timerDelay;
+
+        waypoints = GameObject.FindGameObjectsWithTag("patrolPoint");
     }
 
     // Update is called once per frame
     void Update()
+    {
+       
+    }
+
+    public void Patrol()
     {
         //TODO: We need to so see if we are already at the waypoint
 
@@ -61,7 +85,7 @@ public class AIController : MonoBehaviour
         }
         //If we have arrived at the waypoint, advance to next way point
 
-        //If the AI is to move aling its patrol once
+        //If the AI is to move along its patrol once
         if (loopType == LoopType.stop)
         {
             if (currentWaypoint < (waypoints.Length - 1))
@@ -77,61 +101,93 @@ public class AIController : MonoBehaviour
         //If the AI is to loop its patrol
         else if (loopType == LoopType.loop)
         {
-            if (isNotAtFinalWaypoint)
+
+            if (Vector3.SqrMagnitude(waypoints[currentWaypoint].transform.position - transform.position) < closeEnough)
             {
-                if (Vector3.SqrMagnitude(transform.position - waypoints[currentWaypoint].transform.position) <= (closeEnough * closeEnough))
+
+                if (currentWaypoint < waypoints.Length - 1) // IF the current waypoint is not the last in the array. go to the next waypoint
                 {
                     currentWaypoint++;
                 }
                 else
                 {
-                    currentWaypoint = 0;
+                    currentWaypoint = 0; //If the current waypoint is the last in the array go to the first waypoint in the array
                 }
             }
 
 
-    else if (loopType == LoopType.pingpong)
-        {
-            if (isLoopingForward == true)
-            {
-                if (isNotAtFinalWaypoint)
-                {
-                    if (Vector3.SqrMagnitude(transform.position - waypoints[currentWaypoint].transform.position) <= (closeEnough * closeEnough))
-                    {
-                        currentWaypoint++;
-                    }
-                    else
-                    {
-                        isLoopingForward = false;
-                    }
-                }
 
-                else
+            else if (loopType == LoopType.pingpong)
+            {
+                if (isLoopingForward == true)
                 {
-                    if (currentWaypoint > 0)
+                    if (isNotAtFinalWaypoint)
                     {
                         if (Vector3.SqrMagnitude(transform.position - waypoints[currentWaypoint].transform.position) <= (closeEnough * closeEnough))
                         {
-                            currentWaypoint--;
+                            currentWaypoint++;
                         }
                         else
                         {
-                            isLoopingForward = true;
+                            isLoopingForward = false;
                         }
                     }
+
                     else
                     {
-                        Debug.LogWarning("[AIController] unexpected loop type");
+                        if (currentWaypoint > 0)
+                        {
+                            if (Vector3.SqrMagnitude(transform.position - waypoints[currentWaypoint].transform.position) <= (closeEnough * closeEnough))
+                            {
+                                currentWaypoint--;
+                            }
+                            else
+                            {
+                                isLoopingForward = true;
+                            }
+                        }
+                        else
+                        {
+                            Debug.LogWarning("[AIController] unexpected loop type");
+                        }
+                        // The AI autoshoots
+                        if (Time.time >= lastEventTime + timerDelay)
+                        {
+                            shooter.shoot();
+                            lastEventTime = Time.time;
+                        }
                     }
-                    // The AI autoshoots
-                    if (Time.time >= lastEventTime + timerDelay)
-                    {
-                        shooter.shoot();
-                        lastEventTime = Time.time;
-                    }
-                }
 
                 }
+            }
+        }
+    }
+
+    public void DoAvoidance()
+    {
+        if (avoidStage == 1)
+        {
+            motor.Rotate(-data.turnSpeed);
+            if(canMove(data.moveSpeed))
+            {
+                avoidStage = 2;
+                exitTime = avoidTime;
+            }
+        }
+        else if (avoidStage == 2)
+        {
+            if(canMove(data.moveSpeed))
+            {
+                exitTime -= Time.deltaTime;
+                motor.Move(data.moveSpeed);
+                if (exitTime <= 0)
+                {
+                    avoidStage = 0;
+                }
+            }
+            else
+            {
+                avoidStage = 1;
             }
         }
     }

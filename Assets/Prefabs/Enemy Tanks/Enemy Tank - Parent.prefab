@@ -155,8 +155,11 @@ GameObject:
   - component: {fileID: 739321883}
   - component: {fileID: 3224535459095527390}
   - component: {fileID: 1517425971926622797}
+  - component: {fileID: 2635677608605021778}
+  - component: {fileID: 1108795686}
+  - component: {fileID: 5475898894187406576}
   m_Layer: 0
-  m_Name: Enemy Tank
+  m_Name: Enemy Tank - Parent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -210,7 +213,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firePoint: {fileID: 1490294454}
-  cannonBallPrefab: {fileID: 0}
+  cannonBallPrefab: {fileID: 2095333500193962049, guid: 3cb6f5ffe3619f541be4a1690ce903f5,
+    type: 3}
 --- !u!114 &8241228295209519511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,9 +228,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerDelay: 1.5
-  loopType: 0
-  waypoints: []
-  closeEnough: 1
+  loopType: 1
+  waypoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  closeEnough: 4
+  avoidStage: 0
+  avoidTime: 1.5
+  exitTime: 0
 --- !u!114 &739321882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,8 +264,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   turnSpeed: 115
+  fireRate: 3
   cannonballDamage: 1
-  reloadTime: 1
+  reloadTime: 1.5
   shotSpeed: 1000
 --- !u!114 &3224535459095527390
 MonoBehaviour:
@@ -268,7 +280,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bcc1c3632f47e341a5f8dfb075c12c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 5
   maxHealth: 5
 --- !u!54 &1517425971926622797
 Rigidbody:
@@ -286,6 +297,59 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2635677608605021778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5652691700868970466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6baadc9d5ccfd6540b76353674eed633, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hearingDistance: 3
+  fieldOfVeiw: 45
+  gizmoColor: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &1108795686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5652691700868970466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07b5337c3d432ec4fa81ea968f87e459, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fleeDistance: 1
+  closeEnough: 4
+  AttackState: 0
+--- !u!114 &5475898894187406576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5652691700868970466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6e18cc37350f9940a02d2f44d919029, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fleeDistance: 4
+  closeEnough: 4
+  Persona: 0
+  State: 0
+  stateExitTime: 0
+  playerOne: {fileID: 0}
+  playerTwo: {fileID: 0}
+  lastEventTime: 0
+  timerDelay: 10
+  investigateTimer: 0
+  investigateTimerDelay: 0
 --- !u!1 &5652691700868970468
 GameObject:
   m_ObjectHideFlags: 0

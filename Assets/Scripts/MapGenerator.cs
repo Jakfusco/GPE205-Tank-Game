@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,6 +8,8 @@ public class MapGenerator : MonoBehaviour
     public int rows;
     public int columns;
 
+    public int mapSeed;
+
     private float roomWidth = 50f;
     private float roomHeight = 50f;
 
@@ -14,19 +17,39 @@ public class MapGenerator : MonoBehaviour
 
     private Room[,] grid;
 
+ 
 
-    private void Start()
+
+    private void Awake()
     {
+        rows = GameManager.Instance.rows;
+        columns = GameManager.Instance.columns;
         GenerateGrid();
+        GameManager.Instance.playerSpawnPoints = GameObject.FindGameObjectsWithTag("playerSpawn");
+
     }
 
     public GameObject RandomRoomPrefab()
     {
-        return gridPrefabs[Random.Range(0, gridPrefabs.Length)];
+        return gridPrefabs[UnityEngine.Random.Range(0, gridPrefabs.Length)];
     }
 
     public void GenerateGrid()
     {
+        switch (GameManager.Instance.mapType)
+        {
+            case GameManager.MapGenerationType.Random:
+                mapSeed = DateToInt(DateTime.Now);
+                break;
+            case GameManager.MapGenerationType.MapOfTheDay:
+                mapSeed = DateToInt(DateTime.Now.Date);
+                break;
+            case GameManager.MapGenerationType.CustomSeed:
+                mapSeed = GameManager.Instance.mapSeed;
+                break;
+
+        }
+        UnityEngine.Random.InitState(mapSeed);
         //Clear Out The Grid and Make a New One
         grid = new Room[columns, rows];
 
@@ -78,4 +101,10 @@ public class MapGenerator : MonoBehaviour
             }
         }
     }
+    public int DateToInt(DateTime dateToUse)
+    {
+        // Add our date up and return it
+        return dateToUse.Year + dateToUse.Month + dateToUse.Day + dateToUse.Hour + dateToUse.Minute + dateToUse.Second + dateToUse.Millisecond;
+    }
+
 }

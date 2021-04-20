@@ -28,6 +28,16 @@ public class InputController : MonoBehaviour
         shooter = GetComponent<TankShooter>();
 
         lastEventTime = Time.time - timerDelay;
+
+        if (this.gameObject == GameManager.Instance.Players[0])
+        {
+            inputScheme = InputScheme.arrowKeys;
+        }
+        if (this.gameObject == GameManager.Instance.Players[1])
+        {
+            inputScheme = InputScheme.WASD;
+        }
+
     }
 
     // Update is called once per frame
@@ -117,5 +127,15 @@ public class InputController : MonoBehaviour
                 break;
 
         }
+    }
+
+    public void MakeInputWASD()
+    {
+        inputScheme = InputScheme.WASD;
+    }
+
+    public void MakeInputArrows()
+    {
+        inputScheme = InputScheme.arrowKeys;
     }
 }
