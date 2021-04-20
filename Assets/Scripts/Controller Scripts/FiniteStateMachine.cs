@@ -35,7 +35,7 @@ public class FiniteStateMachine : MonoBehaviour
     public GameObject playerTwo;
 
     public float lastEventTime;
-    public float timerDelay = 10f;
+    public float timerDelay = 1.5f;
     private float time;
 
     public float investigateTimer;
@@ -246,7 +246,7 @@ public class FiniteStateMachine : MonoBehaviour
         {
             controller.avoidStage = 1;
         }
-        if (time >= lastEventTime + timerDelay)
+        if (Time.time > lastEventTime + timerDelay)
         {
             lastEventTime = Time.time;
             shooter.shoot();

@@ -17,6 +17,9 @@ public class AIChaseAndFleeController : MonoBehaviour
 
     public enum attackState { chase, flee }
     public attackState AttackState = attackState.chase;
+
+    public float lastEventTime;
+    public float timerDelay = 1.5f;
     // Start is called before the first frame update
     void Start()
     {
@@ -66,7 +69,12 @@ public class AIChaseAndFleeController : MonoBehaviour
             }
             else
             {
-                shooter.shoot();
+                if (Time.time > lastEventTime + timerDelay)
+                {
+                    lastEventTime = Time.time;
+                    shooter.shoot();
+
+                }
             }
 
         }
