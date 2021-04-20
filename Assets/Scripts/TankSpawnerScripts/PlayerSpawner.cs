@@ -32,6 +32,7 @@ public class PlayerSpawner : MonoBehaviour
           {
             GameObject newPlayer = Instantiate(GameManager.Instance.playerPrefab, spawnPointToUse.transform);
             GameManager.Instance.Players[1] = newPlayer;
+            GameManager.Instance.Players[1].tag = "Player2";
             newPlayer.GetComponent<InputController>().MakeInputWASD();
 
           }

@@ -20,6 +20,14 @@ public class PlayerHUD : MonoBehaviour
     void Update()
     {
         healthText.text = ("Health: " + health.CurrentHealth.ToString());
-        scoreText.text = ("Score:  " + GameManager.Instance.playerScore.ToString());
+        if (this.gameObject.tag == "Player")
+        {
+            scoreText.text = ("Score:  " + GameManager.Instance.player1Score.ToString());
+        }
+        else
+        {
+            scoreText.text = ("Score:  " + GameManager.Instance.player2Score.ToString());
+        }
+        
     }
 }

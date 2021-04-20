@@ -22,6 +22,8 @@ public class MapGenerator : MonoBehaviour
 
     private void Awake()
     {
+        rows = GameManager.Instance.rows;
+        columns = GameManager.Instance.columns;
         GenerateGrid();
         GameManager.Instance.playerSpawnPoints = GameObject.FindGameObjectsWithTag("playerSpawn");
 

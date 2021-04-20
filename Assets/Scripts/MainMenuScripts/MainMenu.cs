@@ -8,6 +8,10 @@ public class MainMenu : MonoBehaviour
 {
     public GameObject mainMenu;
     public GameObject optionsMenu;
+    public Slider BGMSlider;
+    public Slider SFXSlider;
+    public Slider rowSlider;
+    public Slider columnSlider;
     public void OnQuitClicked()
     {
         Debug.Log("Quit Game");
@@ -21,9 +25,21 @@ public class MainMenu : MonoBehaviour
        
     }
 
-
-    public void OnOptionsClicked()
+    public void OnBGMSliderValueChange()
     {
-        
+        GameManager.Instance.musicVolume = BGMSlider.value;
+    }
+    public void OnSFXSliderValueChange()
+    {
+        GameManager.Instance.sfxVolume = SFXSlider.value;
+    }
+
+    public void OnRowSliderValueChange()
+    {
+        GameManager.Instance.rows = (int)rowSlider.value;
+    }
+    public void OnColumnSliderValueChange()
+    {
+        GameManager.Instance.columns = (int)columnSlider.value;
     }
 }

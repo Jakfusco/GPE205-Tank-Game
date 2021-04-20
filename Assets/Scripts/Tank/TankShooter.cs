@@ -4,21 +4,26 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(TankData))]
+[RequireComponent(typeof(AudioSource))]
 public class TankShooter : MonoBehaviour
 {
     public GameObject firePoint; // Use this point in space for instantiating cannon balls
     public GameObject cannonBallPrefab;
     private TankData data;
+    private AudioSource sfx;
 
     // Start is called before the first frame update
     void Start()
     {
         data = GetComponent<TankData>();
+        sfx = GetComponent<AudioSource>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
+            sfx.volume = GameManager.Instance.sfxVolume;
 
     }
 
@@ -37,6 +42,7 @@ public class TankShooter : MonoBehaviour
             cannonBall.attack = new Attack(this.gameObject, data.cannonballDamage);
             Debug.Log(cannonBall.attack);
             gameObject.SendMessage("AddNoise", value: 5, SendMessageOptions.DontRequireReceiver);
+            sfx.Play();
         
 
     }

@@ -11,6 +11,11 @@ public class TankData : MonoBehaviour
 
     public float fireRate = 1.0f;
 
+    public int killScore = 1;
+
+    //Berseker Tank Data
+    public float explosionRadius = 6.0f;
+
 
 
     //Handling Cannonballs

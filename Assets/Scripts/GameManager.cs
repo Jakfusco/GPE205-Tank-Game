@@ -15,14 +15,19 @@ public class GameManager : Singleton<GameManager>
     public GameObject[] playerSpawnPoints;
     public GameObject projectilePrefab;
 
+
     //Used to determine if we're in play mode
     Scene currentScene;
 
     public bool isMultiplayer;
 
-    public int playerScore = 0;
+    public int rows;
+    public int columns;
 
-    public int highScore;
+    public int player1Score = 0;
+    public int player2Score = 0;
+
+    public int highScore = 0;
 
     public float musicVolume;
 
@@ -63,9 +68,14 @@ public class GameManager : Singleton<GameManager>
                 }
         }
 
-        if (playerScore > highScore)
+
+        if (player1Score > highScore)
         {
-            playerScore = highScore;
+            highScore = player1Score;
+        }
+        else if (player2Score > highScore)
+        {
+            highScore = player2Score;
         }
     }
 

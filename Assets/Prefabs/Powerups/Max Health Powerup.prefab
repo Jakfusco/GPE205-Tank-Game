@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 147240427060584782}
   - component: {fileID: 5472253539962490133}
   m_Layer: 0
-  m_Name: Health Powerup
+  m_Name: Max Health Powerup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8fbda502cb6714843a5124041f656023, type: 2}
+  - {fileID: 2100000, guid: 346baca16cc815649b112948a360139a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -110,6 +110,7 @@ MonoBehaviour:
     speedMod: 0
     healthMod: 0
     maxHealthMod: 5
+    damageMod: 0
     fireRateMod: 0
     duration: 1
     isPermanent: 1

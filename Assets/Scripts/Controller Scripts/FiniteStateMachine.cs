@@ -23,7 +23,7 @@ public class FiniteStateMachine : MonoBehaviour
     public enum tankPersona { Patrol, Hunter, Coward, Berserker, Sniper };
     public tankPersona Persona = tankPersona.Patrol;
 
-    public enum AIState { Chase, ChaseAndFire, CheckForFlee, Flee, Rest, Patrol, Investigate };
+    public enum AIState { Chase, ChaseAndFire, CheckForFlee, Flee, Rest, Patrol, Investigate, Explode };
     public AIState State = AIState.Chase;
     private float maxHealth;
 
@@ -123,7 +123,25 @@ public class FiniteStateMachine : MonoBehaviour
             case AIState.Investigate:
                 motor.RotateTowards(playerOne.transform.position, data.turnSpeed);
                 break;
+            case AIState.Explode:
+                Explode();
+                break;
         }
+
+    }
+
+    private void Explode()
+    {
+        Attack explosionAttack = new Attack(this.gameObject, data.cannonballDamage);
+        if (Vector3.Distance(this.transform.position, playerOne.transform.position) <= data.explosionRadius)
+        {
+            playerOne.GetComponent<Health>().TakeDamage(explosionAttack);
+        }
+        if (Vector3.Distance(this.transform.position, playerTwo.transform.position) <= data.explosionRadius)
+        {
+            playerOne.GetComponent<Health>().TakeDamage(explosionAttack);
+        }
+        health.Die();
 
     }
 
@@ -134,7 +152,19 @@ public class FiniteStateMachine : MonoBehaviour
 
     private void BerserkFSM()
     {
-        throw new NotImplementedException();
+        if (playerOne.transform != null)
+        {
+            if ((Vector3.Distance(playerOne.transform.position, this.transform.position)) <= closeEnough)
+            {
+                ChangeState(AIState.Explode);
+            }
+            else
+            {
+                ChangeState(AIState.Chase);
+
+            }
+
+        }
     }
 
     private void CowardFSM()  //Operates like a Patrol Tank, but will run away from the player if they get too close.
